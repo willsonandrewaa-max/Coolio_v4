@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coolio — 2in1 Cooling Spray | Battle Of Ideas 2026</title>
+  <meta name="description" content="Coolio: a 2in1 cooling spray — instant cooling plus perfume fragrance for body and clothes." />
+
+  <!-- Fonts: Fredoka (headings) + Plus Jakarta Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Spray mist particles (drawn by script.js) -->
+  <canvas id="mist-canvas" aria-hidden="true"></canvas>
+
+  <!-- ============================== NAVBAR ============================== -->
+  <header class="nav" id="nav">
+    <a href="#top" class="logo-link" aria-label="Coolio">
+      <img class="logo-img logo-nav" src="assets/logo-word.png" alt="Coolio" />
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#problem">Problem</a>
+      <a href="#solution">Solution</a>
+      <a href="#product">Product</a>
+      <a href="#market">Market</a>
+      <a href="#competitors">Competitors</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+    <a href="#investment" class="btn btn-primary btn-sm nav-cta">Investment</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span></button>
+  </header>
+
+  <main id="top">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><span class="blob b4"></span>
+        <div class="bubbles" id="bubbles"></div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="hero-badges">
+            <span class="eyebrow"><i class="dot"></i> Battle Of Ideas 2026</span>
+            <span class="sdg-badge" title="Supports SDG 8 (Decent Work and Economic Growth) and SDG 9 (Industry, Innovation and Infrastructure)">
+              <img src="assets/sdg-8-9.png" alt="SDG 8 Decent Work and Economic Growth, SDG 9 Industry, Innovation and Infrastructure" />
+              <span>Supporting<br /><b>SDG 8 &amp; 9</b></span>
+            </span>
+          </div>
+          <h1 class="hero-title">
+            <span class="cool-blue">Cool in,</span>
+            <span class="cool-blue">Move on,</span>
+            <span class="with-line">With <img class="logo-img logo-hero" src="assets/logo-word.png" alt="COOLIO" /></span>
+          </h1>
+          <p class="lead">
+            <strong>Coolio</strong> is a <em>2in1 Cooling Spray</em>: one spray on your body or clothes
+            gives an instant <strong>cooling</strong> feel and leaves a <strong>perfume fragrance</strong>
+            that covers sweat odor.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="sprayBtn">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 9h6v12H7zM9 4h2v4H9zm4 1h3v2h-3zM18 3h2v2h-2zm0 4h2v2h-2zm-2-2h2v2h-2z"/></svg>
+              Try a Spray
+            </button>
+            <a href="#investment" class="btn btn-ghost">See the Opportunity →</a>
+          </div>
+          <ul class="hero-pills">
+            <li><span>❄️</span> Instant cooling</li>
+            <li><span>🍏</span> Green Apple</li>
+            <li><span>👕</span> Body &amp; clothes</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <div class="orbit o1" aria-hidden="true"></div>
+          <div class="orbit o2" aria-hidden="true"></div>
+          <!-- The 3D bottle is built inside this element by script.js -->
+          <div class="bottle-host" id="heroBottle" data-interactive="true"></div>
+          <div class="float-chip c1">❄️ <b>Instant Cooling</b></div>
+          <div class="float-chip c2">🍏 <b>Fresh Fragrance</b></div>
+          <div class="float-chip c3">💧 <b>Fine Mist</b></div>
+          <p class="drag-hint">⟲ Drag to rotate the bottle</p>
+        </div>
+      </div>
+
+      <a href="#problem" class="scroll-cue" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <!-- ============================== MARQUEE ============================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Instant Cooling</span><i>❄</i><span>Perfume Fragrance</span><i>❄</i><span>Body &amp; Clothes</span><i>❄</i><span>Green Apple Scent</span><i>❄</i><span>100 ML Travel Size</span><i>❄</i>
+        <span>Instant Cooling</span><i>❄</i><span>Perfume Fragrance</span><i>❄</i><span>Body &amp; Clothes</span><i>❄</i><span>Green Apple Scent</span><i>❄</i><span>100 ML Travel Size</span><i>❄</i>
+      </div>
+    </div>
+
+    <!-- ============================== PROBLEM ============================== -->
+    <section class="section" id="problem">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">01 — Problem</span>
+          <h2>Heat, stickiness, and sweat odor are an <span class="hl-pink">everyday problem</span> in the tropics.</h2>
+          <p>Indonesia is hot and humid all year round. On the commute, on campus, at the office, or working outdoors, the body overheats quickly and sweat odor hurts confidence.</p>
+        </div>
+
+        <div class="cards-2">
+          <article class="card problem photo reveal">
+            <div class="card-photo"><img src="assets/problem-heat.jpg" alt="Outdoor worker wiping sweat under the hot sun" /></div>
+            <div class="card-body">
+              <h3>Feeling hot &amp; sticky</h3>
+              <p>Hot, humid air makes people uncomfortable, unfocused, and tired faster, especially outdoors and on the commute.</p>
+            </div>
+          </article>
+          <article class="card problem photo reveal">
+            <div class="card-photo"><img src="assets/problem-odor.jpg" alt="Woman feeling the heat and sweating outdoors" /></div>
+            <div class="card-body">
+              <h3>Sweat odor</h3>
+              <p>Sweat clings to skin and clothes. Regular deodorant is made for underarms, not for the whole body or clothing.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== SOLUTION ============================== -->
+    <section class="section section-tint" id="solution">
+      <div class="container solusi-grid">
+        <div class="solusi-copy">
+          <div class="section-head left reveal">
+            <span class="kicker">02 — Solution</span>
+            <h2>One spray, <span class="grad-text">two benefits.</span></h2>
+            <p>Coolio combines a cooling effect and a fragrance in one compact bottle. Just spray it on your body or clothes.</p>
+          </div>
+
+          <div class="equation reveal">
+            <div class="eq-card eq-cool">
+              <div class="eq-media" style="background-image:url(assets/ice.jpg)"></div>
+              <h4>Cooling</h4>
+              <p>A fresh, cold sensation you feel on your skin right away.</p>
+            </div>
+            <span class="eq-op">+</span>
+            <div class="eq-card eq-frag">
+              <div class="eq-media" style="background-image:url(assets/green-apple.jpg)"></div>
+              <h4>Fragrance</h4>
+              <p>A fresh Green Apple perfume scent that covers sweat odor.</p>
+            </div>
+            <span class="eq-op">=</span>
+            <div class="eq-card eq-result">
+              <img class="logo-img logo-eq" src="assets/logo-word.png" alt="Coolio" />
+              <p>Cool, fresh, confident. <b>Move on.</b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-card reveal" id="tiltCard">
+          <div class="photo-glow"></div>
+          <img src="assets/coolio-mockup-v2.jpg" alt="Coolio 2in1 Cooling Spray, Green Apple Scent, 100ML bottle" />
+          <span class="photo-tag t1">2in1</span>
+          <span class="photo-tag t2">100 ML</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PRODUCT / 3D ANATOMY ============================== -->
+    <section class="section" id="product">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">03 — Product</span>
+          <h2>Designed to go anywhere.</h2>
+          <p>A clear 100 ML bottle with a fine-mist pump, a protective overcap, and a playful label that stands out on the shelf.</p>
+        </div>
+
+        <div class="anatomy reveal">
+          <div class="spec-col left">
+            <div class="spec" data-spot="cap">
+              <span class="spec-num">A</span>
+              <div><h4>Clear overcap</h4><p>Protects the nozzle from being pressed inside a bag.</p></div>
+            </div>
+            <div class="spec" data-spot="pump">
+              <span class="spec-num">B</span>
+              <div><h4>Fine mist pump</h4><p>A fine, even mist for body and clothes.</p></div>
+            </div>
+          </div>
+
+          <div class="anatomy-stage">
+            <div class="bottle-host" id="anatomyBottle" data-interactive="true"></div>
+          </div>
+
+          <div class="spec-col right">
+            <div class="spec" data-spot="label">
+              <span class="spec-num">C</span>
+              <div><h4>2in1 formula</h4><p>Cooling + fragrance in one liquid, with a Green Apple scent.</p></div>
+            </div>
+            <div class="spec" data-spot="body">
+              <span class="spec-num">D</span>
+              <div><h4>Compact 100 ML</h4><p>Fits in a bag, a jacket pocket, or a motorbike compartment.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- How to use -->
+        <div class="steps" id="how-to-use">
+          <div class="step reveal"><span class="step-n">1</span><h4>Shake</h4><p>Gently shake the bottle before use.</p></div>
+          <div class="step-line"></div>
+          <div class="step reveal"><span class="step-n">2</span><h4>Spray</h4><p>Spray on your body or clothes from about 15–20 cm away.</p></div>
+          <div class="step-line"></div>
+          <div class="step reveal"><span class="step-n">3</span><h4>Move On</h4><p>Feel the cool, enjoy the scent, and get on with your day.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TARGET MARKET ============================== -->
+    <section class="section section-tint" id="target">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">04 — Target Market</span>
+          <h2>For everyone who's <span class="hl-green">always on the move.</span></h2>
+        </div>
+        <div class="persona-grid">
+          <div class="persona reveal"><span>🎓</span><h4>Students</h4><p>A quick refresh between classes and activities.</p></div>
+          <div class="persona reveal"><span>🚇</span><h4>Commuters &amp; Office Workers</h4><p>Arrive at work cool after the commute.</p></div>
+          <div class="persona reveal"><span>🛵</span><h4>Drivers &amp; Field Workers</h4><p>A companion under the sun all day.</p></div>
+          <div class="persona reveal"><span>🏃</span><h4>Sports Lovers</h4><p>Instant cool-down after running, futsal, or the gym.</p></div>
+          <div class="persona reveal"><span>🧳</span><h4>Travelers</h4><p>A compact size for long trips.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== MARKET ============================== -->
+    <section class="section section-dark" id="market">
+      <div class="dark-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker light">05 — Market Opportunity</span>
+          <h2>A huge need, with a clear first market.</h2>
+          <p>Everyone aged 10+ can use Coolio. We start with Depok, the city with the highest share of commuters in Jabodetabek.</p>
+        </div>
+
+        <div class="stats">
+          <div class="stat reveal">
+            <span class="stat-label">TAM · Indonesia</span>
+            <span class="stat-value">Rp<b data-count="21.8" data-decimals="1">0</b>T</span>
+            <span class="stat-note">242.2M people aged 10+ × 2 bottles/year × Rp45,000</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-label">SAM · Depok</span>
+            <span class="stat-value">Rp<b data-count="165.2" data-decimals="1">0</b>B</span>
+            <span class="stat-note">1.84M Depok residents aged 10+ × Rp90,000/year</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-label">SOM · Year 1</span>
+            <span class="stat-value">Rp<b data-count="492.8" data-decimals="1">0</b>M</span>
+            <span class="stat-note">5,475 loyal customers · 10,950 bottles/year</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-label">Target share</span>
+            <span class="stat-value"><b data-count="0.3" data-decimals="2">0</b>%</span>
+            <span class="stat-note">of Depok's cooling spray market in Year 1</span>
+          </div>
+        </div>
+
+        <div class="insight-row four reveal">
+          <div class="insight"><b>4.4M commuters</b> in Jabodetabek. Depok has the highest share: 24.5%, about 485K people.</div>
+          <div class="insight"><b>2024 was the hottest year</b> since 1981, and Jakarta has reached 35–36 °C.</div>
+          <div class="insight"><b>US$9.74B</b> beauty &amp; personal care market in 2025, growing 12–13% a year.</div>
+          <div class="insight"><b>Split by function:</b> perfume 68%, deodorant 17%, body mist 10%. Room for a 2-in-1.</div>
+        </div>
+        <p class="source">Sources: COOLIO business proposal, citing BPS (2023, 2025, 2026), BMKG (2025), Katadata (2026), and Snapcart (2026).</p>
+      </div>
+    </section>
+
+    <!-- ============================== COMPETITOR ANALYSIS ============================== -->
+    <section class="section" id="competitors">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">06 — Competitor Analysis</span>
+          <h2>How Coolio stacks up.</h2>
+          <p>Coolio has a strong market opportunity as a practical cooling spray at a competitive price.</p>
+        </div>
+
+        <div class="adv-pills reveal">
+          <span class="adv adv-1">👌 Easy to Use</span>
+          <span class="adv adv-2">❄️ Cooling Sensation</span>
+          <span class="adv adv-3">🏷️ Competitively Priced</span>
+        </div>
+
+        <!-- EDIT: competitor data comes from your Competitor Analysis slide -->
+        <div class="table-wrap reveal">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th class="col-coolio"><img class="logo-img logo-table" src="assets/logo-word.png" alt="Coolio" /></th>
+                <th>Uadem</th>
+                <th>Kobayashi</th>
+                <th>Miniso</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Main ingredients</td>
+                <td class="col-coolio">Cooling agent + perfume fragrance</td>
+                <td>Cooling agent (menthol)</td>
+                <td>Alcohol, menthol, fragrance</td>
+                <td>Water, alcohol, menthol, fragrance, humectant</td>
+              </tr>
+              <tr>
+                <td>Usage area</td>
+                <td class="col-coolio">Skin &amp; clothes</td>
+                <td>Skin &amp; clothes</td>
+                <td>Clothes</td>
+                <td>Skin</td>
+              </tr>
+              <tr>
+                <td>Cooling sensation</td>
+                <td class="col-coolio">Instant cooling + fresh scent</td>
+                <td>Optimal cooling when sweating</td>
+                <td>Intense cooling</td>
+                <td>Cooling &amp; refreshing</td>
+              </tr>
+              <tr>
+                <td>Price</td>
+                <td class="col-coolio"><b>Rp45,000</b></td>
+                <td>Rp45,000</td>
+                <td>Rp79,000</td>
+                <td>Rp39,900</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== BUSINESS MODEL ============================== -->
+    <section class="section section-tint" id="business">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">07 — Business Model</span>
+          <h2>Direct-to-consumer, built for repeat orders.</h2>
+          <p>A B2C model aimed at the ~4.4 million commuters in Jabodetabek who need an instant fix for heat and body odor, without relying on costly, non-portable air conditioning.</p>
+        </div>
+
+        <div class="biz-grid">
+          <div class="price-card reveal">
+            <span class="price-label">Retail price, 100 ML</span>
+            <span class="price">Rp45,000</span>
+            <ul>
+              <li>Cost per bottle (COGS): <b>Rp31,260</b></li>
+              <li>Gross profit per bottle: <b>Rp13,740</b></li>
+              <li>Gross margin: <b>30.5%</b></li>
+              <li>Launch variant: <b>Green Apple</b></li>
+            </ul>
+          </div>
+
+          <div class="channels">
+            <div class="channel reveal"><span>🛒</span><div><h4>Direct to consumer (B2C)</h4><p>Unit sales through e-commerce, social commerce, and our official site.</p></div></div>
+            <div class="channel reveal"><span>🏭</span><div><h4>Contract manufacturing</h4><p>Mass production with a manufacturing partner (maklon) to keep capital lean.</p></div></div>
+            <div class="channel reveal"><span>🔁</span><div><h4>Repeat orders</h4><p>Heat and commuting are daily routines, so Coolio is a consumable people rebuy.</p></div></div>
+            <div class="channel reveal"><span>📣</span><div><h4>Problem-solution marketing</h4><p>Educational content and the "Cool in, Move on with COOLIO" campaign, then booths at marathons, car-free days, and outdoor concerts.</p></div></div>
+          </div>
+        </div>
+
+        <!-- Cost per bottle -->
+        <div class="cogs reveal">
+          <div class="cogs-head">
+            <h3>What goes into one bottle</h3>
+            <span>COGS per bottle: <b>Rp31,260</b></span>
+          </div>
+          <div class="cogs-list">
+            <div class="cogs-row"><span>Spray bottle</span><div class="bar light"><i data-value="100"></i></div><b>Rp12,000</b></div>
+            <div class="cogs-row"><span>Green apple fragrance</span><div class="bar light"><i data-value="58.3"></i></div><b>Rp7,000</b></div>
+            <div class="cogs-row"><span>Menthol</span><div class="bar light"><i data-value="35"></i></div><b>Rp4,200</b></div>
+            <div class="cogs-row"><span>Ethanol</span><div class="bar light"><i data-value="34.7"></i></div><b>Rp4,160</b></div>
+            <div class="cogs-row"><span>Shrink seal</span><div class="bar light"><i data-value="15.8"></i></div><b>Rp1,900</b></div>
+            <div class="cogs-row"><span>Packaging label</span><div class="bar light"><i data-value="11.7"></i></div><b>Rp1,400</b></div>
+            <div class="cogs-row"><span>Business card</span><div class="bar light"><i data-value="4.2"></i></div><b>Rp500</b></div>
+            <div class="cogs-row"><span>Aquadest</span><div class="bar light"><i data-value="0.8"></i></div><b>Rp100</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ROADMAP ============================== -->
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">08 — Roadmap</span>
+          <h2>From first prototype to production.</h2>
+          <p>What we have done so far, and where we are heading over the next five years.</p>
+        </div>
+
+        <!-- Milestones so far -->
+        <div class="milestones reveal">
+          <div class="ms">
+            <span class="ms-date">2 October 2026</span>
+            <span class="ms-text">Acquired production materials</span>
+            <span class="ms-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 17 24 9l16 8v18l-16 8-16-8z M8 17l16 8 16-8 M24 25v18 M8 17l-5 7 16 8 5-7 M40 17l5 7-16 8-5-7"/></svg></span>
+          </div>
+          <div class="ms down">
+            <span class="ms-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M19 6h10 M21 6v13L10 39a3 3 0 0 0 3 4h22a3 3 0 0 0 3-4L27 19V6 M14 31h20"/><circle cx="21" cy="36" r="2"/><circle cx="28" cy="33" r="1.5"/><circle cx="31" cy="10" r="2"/><circle cx="35" cy="5" r="1.5"/></svg></span>
+            <span class="ms-text">MVP 1 prototype</span>
+            <span class="ms-date">6 October 2026</span>
+          </div>
+          <div class="ms">
+            <span class="ms-date">26 October 2026</span>
+            <span class="ms-text">MVP 2 prototype</span>
+            <span class="ms-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 42h20 M18 42v-6 M12 36h12 M14 8l6-3 8 16-6 3z M20 24a10 10 0 0 0 8 12 M33 14v14a5 5 0 0 0 10 0V14 M31 14h14 M33 22h10"/></svg></span>
+          </div>
+          <div class="ms down">
+            <span class="ms-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 8h7l-1 22h-5z M29 8h7l-2 22h-5z"/><circle cx="17.5" cy="38" r="3.5"/><circle cx="31.5" cy="38" r="3.5"/></svg></span>
+            <span class="ms-text">COOLIO production</span>
+            <span class="ms-date">12 November 2026</span>
+          </div>
+        </div>
+
+        <h3 class="sub-head reveal">5-year growth roadmap</h3>
+        <div class="timeline">
+          <div class="tl-item reveal"><span class="tl-dot"></span><span class="tl-phase">Year 1</span><h4>Product &amp; brand</h4><p>Refine product quality, sell on marketplaces and social media, run product sampling, and partner with sports communities.</p></div>
+          <div class="tl-item reveal"><span class="tl-dot"></span><span class="tl-phase">Year 2</span><h4>Major cities</h4><p>Expand to major Indonesian cities through marketplaces and resellers, with event organizers and content creators.</p></div>
+          <div class="tl-item reveal"><span class="tl-dot"></span><span class="tl-phase">Years 3–4</span><h4>Nationwide distribution</h4><p>Distributors, sports stores, gyms, and retail partners across Indonesia, backed by more production capacity.</p></div>
+          <div class="tl-item reveal"><span class="tl-dot"></span><span class="tl-phase">Year 5</span><h4>Southeast Asia</h4><p>Review national results and explore tropical markets in Southeast Asia.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== INVESTMENT ============================== -->
+    <section class="section" id="investment">
+      <div class="container">
+        <div class="invest reveal">
+          <div class="invest-copy">
+            <span class="kicker light">09 — Investment Opportunity</span>
+            <h2>Join us in bringing Coolio to all of Indonesia.</h2>
+            <p class="ask">We started with <b>Rp1,500,000</b> of capital from our 12 members. To run our first month of operations, COOLIO needs about <b>Rp32.1 million</b> in working capital.</p>
+            <div class="kpis">
+              <div class="kpi"><span>IRR</span><b>61.46%</b></div>
+              <div class="kpi"><span>NPV (5 years)</span><b>Rp351.95M</b></div>
+              <div class="kpi"><span>Break-even</span><b>4,954 bottles</b><small>around month 6</small></div>
+              <div class="kpi"><span>Net margin</span><b>18.9% → 20.2%</b><small>Year 1 → Year 5</small></div>
+            </div>
+            <a href="#contact" class="btn btn-white">Schedule a Meeting →</a>
+          </div>
+
+          <div class="invest-side">
+            <div class="panel">
+              <div class="panel-head"><h4>Revenue projection</h4><span>Rp million</span></div>
+              <div class="chart" role="img" aria-label="Revenue grows from Rp486.0 million in Year 1 to Rp800.9 million in Year 5">
+                <div class="col" data-value="486.0" tabindex="0"><span class="col-val">486.0</span><i></i><span class="col-x">Y1</span><span class="tip"><b>Year 1</b>Revenue Rp486.0M<br />Net profit Rp92.0M<br />10,800 bottles</span></div>
+                <div class="col" data-value="550.6" tabindex="0"><i></i><span class="col-x">Y2</span><span class="tip"><b>Year 2</b>Revenue Rp550.6M<br />Net profit Rp106.0M<br />11,880 bottles</span></div>
+                <div class="col" data-value="623.9" tabindex="0"><i></i><span class="col-x">Y3</span><span class="tip"><b>Year 3</b>Revenue Rp623.9M<br />Net profit Rp122.0M<br />13,068 bottles</span></div>
+                <div class="col" data-value="706.8" tabindex="0"><i></i><span class="col-x">Y4</span><span class="tip"><b>Year 4</b>Revenue Rp706.8M<br />Net profit Rp140.4M<br />14,375 bottles</span></div>
+                <div class="col" data-value="800.9" tabindex="0"><span class="col-val">800.9</span><i></i><span class="col-x">Y5</span><span class="tip"><b>Year 5</b>Revenue Rp800.9M<br />Net profit Rp161.5M<br />15,812 bottles</span></div>
+              </div>
+              <p class="panel-note">Unit sales grow 10% a year. Hover a bar for details.</p>
+            </div>
+
+            <div class="panel funds">
+              <div class="panel-head"><h4>Year 1 operating budget</h4><span>Rp54.0M</span></div>
+              <div class="fund"><div class="fund-top"><span>Marketing (digital ads, samples, micro-influencers)</span><b>Rp24.0M</b></div><div class="bar"><i data-value="44.4"></i></div></div>
+              <div class="fund"><div class="fund-top"><span>Operations (licensing, equipment, admin, production wages)</span><b>Rp26.0M</b></div><div class="bar"><i data-value="48.1"></i></div></div>
+              <div class="fund"><div class="fund-top"><span>R&amp;D (formula development, quality &amp; safety tests)</span><b>Rp4.0M</b></div><div class="bar"><i data-value="7.4"></i></div></div>
+            </div>
+          </div>
+        </div>
+        <p class="source dark-source">Source: COOLIO business proposal, financial projection (discount rate 20%, tax 0.5% of revenue).</p>
+      </div>
+    </section>
+
+    <!-- ============================== CONTACT ============================== -->
+    <section class="section contact" id="contact">
+      <div class="container contact-inner reveal">
+        <img class="logo-img logo-contact" src="assets/logo-full.png" alt="Cool in, Move On with Coolio" />
+        <p>Thank you for your time. Let's talk further.</p>
+        <div class="contact-list">
+          <a href="mailto:Withcoolio@gmail.com" class="contact-chip">
+            <span class="ci ci-mail"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span>
+            Withcoolio@gmail.com
+          </a>
+          <a href="https://wa.me/6282220543699" class="contact-chip">
+            <img class="ci" src="assets/icon-whatsapp.png" alt="" />
+            +62 822-2054-3699
+          </a>
+          <a href="https://www.instagram.com/withcoolio" class="contact-chip">
+            <img class="ci" src="assets/icon-instagram.png" alt="" />
+            @withcoolio
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 Coolio. All rights reserved.</div>
+  </footer>
+
+  <script src="assets/logo-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
