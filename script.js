@@ -14,7 +14,7 @@ const CONFIG = {
     line4: "Scent",
     volume: "100ML",
     backTitle: "HOW TO USE",
-    backLines: ["1. Shake before use", "2. Spray from 15–20 cm", "onto body / clothes", "3. Cool in, Move On!"],
+    backLines: ["1. Shake & open the cap", "2. Spray 3–5x from 5–10 cm", "onto sweaty areas", "3. Feel the cool!"],
     netto: "Net 100 ml",
   },
   colors: {
@@ -407,30 +407,38 @@ class Bottle {
     new IntersectionObserver(([en]) => (this.visible = en.isIntersecting)).observe(h);
   }
 
+  // 1x klik: tutup terbuka, lalu langsung menyemprot
   spray() {
-    if (this.host.classList.contains("spraying")) return;
-    this.host.classList.add("spraying");
-    // putar agar nozzle menghadap kanan
+    if (this.busy) return;
+    this.busy = true;
+    // putar agar nozzle menghadap kanan, lalu buka tutup
     this.sprayTarget = this.rot + norm(55 - this.rot);
-    this.pause = 2.2;
+    this.pause = 2;
+    this.host.classList.add("spraying");
     setTimeout(() => {
-      const p = this.nozzle.getBoundingClientRect();
-      Mist.burst(p.left, p.top, this.s);
+      // arah semprot mengikuti posisi nozzle terhadap tengah botol
+      const nozzle = () => {
+        const p = this.nozzle.getBoundingClientRect(), h = this.host.getBoundingClientRect();
+        return { x: p.left, y: p.top, dir: p.left < h.left + h.width / 2 - 2 ? -1 : 1 };
+      };
+      Mist.burst(nozzle, this.s);
+      const p = nozzle();
       const b = document.createElement("div");
       b.className = "mist-bubble";
       b.textContent = CONFIG.sprayMessage;
-      b.style.left = p.left + 150 * this.s + "px";
-      b.style.top = p.top - 70 * this.s + "px";
+      b.style.left = p.x + (p.dir > 0 ? 40 : -220) * this.s + "px";
+      b.style.top = p.y - 120 * this.s + "px";
       document.body.appendChild(b);
       setTimeout(() => b.remove(), 1900);
-    }, 650);
-    setTimeout(() => { this.host.classList.remove("spraying"); this.sprayTarget = null; }, 2100);
+    }, 380);
+    setTimeout(() => { this.host.classList.remove("spraying"); this.sprayTarget = null; }, 1700);
+    setTimeout(() => { this.busy = false; }, 2000);
   }
 
   update(dt) {
     if (!this.visible) return;
     if (this.sprayTarget != null) {
-      this.rot += (this.sprayTarget - this.rot) * Math.min(1, dt * 7);
+      this.rot += (this.sprayTarget - this.rot) * Math.min(1, dt * 12);
       this.vel = 0;
     } else if (!this.dragging) {
       this.vel *= Math.pow(0.04, dt);
@@ -490,15 +498,19 @@ const Mist = (() => {
   const fit = () => { dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = innerWidth * dpr; cv.height = innerHeight * dpr; };
   fit(); addEventListener("resize", fit);
 
-  function burst(x, y, s = 1) {
+  let emitting = 0;
+  // getPos() mengembalikan posisi nozzle terkini (botol bisa bergerak)
+  function burst(getPos, s = 1) {
     let n = 0;
-    const iv = setInterval(() => {
+    emitting++;
+    const emit = () => {
+      const { x, y, dir } = getPos();
       // kabut putih: campuran awan lembut + titik-titik embun halus
       for (let i = 0; i < 10; i++) {
         const fine = Math.random() < 0.45;
         parts.push({
           x, y,
-          vx: (240 + Math.random() * 420) * s,
+          vx: (240 + Math.random() * 420) * s * dir,
           vy: (-110 + Math.random() * 150) * s,
           r: (fine ? 1 + Math.random() * 1.6 : 3 + Math.random() * 5) * s,
           g: (fine ? 1 : 16 + Math.random() * 24) * s,
@@ -507,7 +519,11 @@ const Mist = (() => {
           fine,
         });
       }
-      if (++n > 34) clearInterval(iv);
+    };
+    emit(); // partikel pertama langsung muncul pada klik pertama
+    const iv = setInterval(() => {
+      emit();
+      if (++n > 34) { clearInterval(iv); emitting--; }
     }, 16);
     if (!running) { running = true; last = performance.now(); requestAnimationFrame(loop); }
   }
@@ -532,7 +548,7 @@ const Mist = (() => {
       }
     }
     ctx.globalAlpha = 1;
-    if (parts.length) requestAnimationFrame(loop);
+    if (parts.length || emitting > 0) requestAnimationFrame(loop);
     else { running = false; ctx.clearRect(0, 0, innerWidth, innerHeight); }
   }
   return { burst };

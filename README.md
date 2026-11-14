@@ -9,10 +9,10 @@ Buka `index.html` langsung di browser (double-click). Tidak perlu install apa pu
 | `style.css` | Tampilan. **Warna utama ada di bagian `:root` paling atas** |
 | `script.js` | Botol 3D, efek semprot, animasi. **Teks label botol ada di `CONFIG` paling atas** |
 | `assets/coolio-mockup-v2.jpg` | Foto mockup produk (ganti file dengan nama sama untuk update foto) |
-| `assets/problem-*.jpg`, `ice.jpg`, `green-apple.jpg` | Foto section Problem & Solution |
+| `assets/problem-*-hd.jpg`, `ice.jpg`, `green-apple.jpg` | Foto section Problem & Solution |
 | `assets/sdg-8-9.png` | Badge SDG 8 & 9 |
 | `assets/icon-*.png` | Ikon WhatsApp & Instagram di kontak |
-| `assets/logo-word.png` | Logo "Coolio" saja (navbar, hero, tabel kompetitor) |
+| `assets/logo-word.png` | Logo "Coolio" saja (navbar, hero, Why Coolio) |
 | `assets/logo-full.png` | Logo lengkap dengan tagline (bagian kontak) |
 | `assets/logo-data.js` | Salinan logo untuk label botol 3D |
 
@@ -22,7 +22,7 @@ Angka di section Market Opportunity, Business Model, dan Investment Opportunity 
 - Bar biaya per botol & anggaran: ubah `data-value` (persen panjang bar) dan teks nominalnya.
 
 ## Edit cepat lainnya
-- **Data kompetitor**: tabel di section `COMPETITOR ANALYSIS` di `index.html`.
+- **Keunggulan produk**: section `WHY COOLIO` di `index.html`.
 - **Ganti warna**: ubah nilai di `:root` (`--sky-500`, `--pink`, `--lime`, dll.) pada `style.css`.
 - **Ganti teks di label botol 3D**: ubah `CONFIG.label` di `script.js` (misal varian aroma baru).
 - **Warna label botol 3D**: ubah `CONFIG.colors` di `script.js`.
