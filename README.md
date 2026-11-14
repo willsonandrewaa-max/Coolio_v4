@@ -12,6 +12,7 @@ Buka `index.html` langsung di browser (double-click). Tidak perlu install apa pu
 | `assets/problem-*-hd.jpg`, `ice.jpg`, `green-apple.jpg` | Foto section Problem & Solution |
 | `assets/sdg-8-9.png` | Badge SDG 8 & 9 |
 | `assets/icon-*.png` | Ikon WhatsApp & Instagram di kontak |
+| `assets/mascot-*.png` | Maskot Cools (hero, Problem, timeline produksi, Investment, kontak) |
 | `assets/logo-word.png` | Logo "Coolio" saja (navbar, hero, Why Coolio) |
 | `assets/logo-full.png` | Logo lengkap dengan tagline (bagian kontak) |
 | `assets/logo-data.js` | Salinan logo untuk label botol 3D |
@@ -23,7 +24,7 @@ Angka di section Market Opportunity, Business Model, dan Investment Opportunity 
 
 ## Edit cepat lainnya
 - **Keunggulan produk**: section `WHY COOLIO` di `index.html`.
-- **Ganti warna**: ubah nilai di `:root` (`--sky-500`, `--pink`, `--lime`, dll.) pada `style.css`.
+- **Ganti warna**: palet brand ada di `:root` pada `style.css`: `--primary` #008EEB, `--secondary` #31B478, `--yellow` #FFF89F, `--accent` #FF009D (dipakai sedikit).
 - **Ganti teks di label botol 3D**: ubah `CONFIG.label` di `script.js` (misal varian aroma baru).
 - **Warna label botol 3D**: ubah `CONFIG.colors` di `script.js`.
 - **Kecepatan putar botol**: `CONFIG.autoRotateSpeed` di `script.js`.

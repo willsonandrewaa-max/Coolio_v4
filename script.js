@@ -586,6 +586,10 @@ function initBottles() {
     img.src = window.COOLIO_LOGO_DATA;
   }
 
+  // klik maskot Cools di hero juga menyemprot
+  const mh = $("#mascotHero");
+  if (mh) mh.addEventListener("click", () => bottles[0] && bottles[0].spray());
+
   const sprayBtn = $("#sprayBtn");
   if (sprayBtn) sprayBtn.addEventListener("click", () => bottles[0] && bottles[0].spray());
 
